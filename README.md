@@ -63,6 +63,7 @@ func main() {
     mux := http.NewServeMux()
 
     mux.Handle("/home", i.Middleware(homeHandler(i)))
+    log.Fatal(http.ListenAndServe(":8000", mux))
 }
 
 func homeHandler(i *inertia.Inertia) http.Handler {
